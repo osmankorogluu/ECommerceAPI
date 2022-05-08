@@ -14,6 +14,7 @@ namespace ECommerceAPI.API.Controllers
         {
             _productService = productService;
         }
+
         [HttpGet]
         public IActionResult GetProduct()
         {

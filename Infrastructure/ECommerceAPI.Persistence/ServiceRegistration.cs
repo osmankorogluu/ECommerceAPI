@@ -14,7 +14,8 @@ namespace ECommerceAPI.Persistence
     {
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            services.AddDbContext<ECommerceAPIDbContext>(options => options.UseSqlServer("Server=DESKTOP-0A073BJ\\SQLEXPRESS;Database=ECommerce;Trusted_Connection=True;"));
+            
+            services.AddDbContext<ECommerceAPIDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
         }
        
     }
