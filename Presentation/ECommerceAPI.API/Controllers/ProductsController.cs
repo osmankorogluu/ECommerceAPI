@@ -22,13 +22,17 @@ namespace ECommerceAPI.API.Controllers
         [HttpGet]
         public async Task Get()
         {
-            await _productWriteRepository.AddRangeAsync(new()
-            {
-                new() { Id = Guid.NewGuid(), Name = "Product 1", Price = 150, CreatedDate = DateTime.Now, Stock = 10 },
-                new() { Id = Guid.NewGuid(), Name = "Product 2", Price = 200, CreatedDate = DateTime.Now, Stock = 10 },
-                new() { Id = Guid.NewGuid(), Name = "Product 3", Price = 150, CreatedDate = DateTime.Now, Stock = 10 },
-            });
-            var count = await _productWriteRepository.SaveAsync();
+            //await _productWriteRepository.AddRangeAsync(new()
+            //{
+            //    new() { Id = Guid.NewGuid(), Name = "Product 1", Price = 150, CreatedDate = DateTime.Now, Stock = 10 },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 2", Price = 200, CreatedDate = DateTime.Now, Stock = 10 },
+            //    new() { Id = Guid.NewGuid(), Name = "Product 3", Price = 150, CreatedDate = DateTime.Now, Stock = 10 },
+            //});
+            //var count = await _productWriteRepository.SaveAsync();
+
+            Product p = await _productReadRepository.GetByIdAsync("70015d9d-2988-43dc-a1e4-3fe246b6991e",false);
+            p.Name = "Mehemet";
+            await _productWriteRepository.SaveAsync();
         }
 
         [HttpGet("{id}")]
