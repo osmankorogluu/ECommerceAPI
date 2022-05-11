@@ -20,7 +20,7 @@ namespace ECommerceAPI.Persistence.Repositories
             _context = context;
         }
 
-        public DbSet<T> Table => throw new NotImplementedException();
+        public DbSet<T> Table => _context.Set<T>();
 
         public async Task<bool> AddAsync(T model)
         {
@@ -28,10 +28,10 @@ namespace ECommerceAPI.Persistence.Repositories
             return entityState.State == EntityState.Added;
         }
 
-        public Task<bool> AddAsync(List<T> model)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<bool> AddAsync(List<T> model)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<bool> AddRangeAsync(List<T> data)
         {

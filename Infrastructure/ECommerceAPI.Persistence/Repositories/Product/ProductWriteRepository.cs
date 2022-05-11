@@ -13,6 +13,7 @@ namespace ECommerceAPI.Persistence.Repositories
     {
         public ProductWriteRepository(ECommerceAPIDbContext context) : base(context)
         {
+
         }
     }
 }
